@@ -47,8 +47,8 @@ def main() -> None:
     store.create_schema()
 
     strategies = {
-        "A": [chunk for page in pages for chunk in fixed_size(page, 500, 50)],
-        "B": [chunk for page in pages for chunk in by_paragraph(page, 500)],
+        "A": [chunk for page in pages for chunk in fixed_size(page, 800, 100)],
+        "B": [chunk for page in pages for chunk in by_paragraph(page, 800)],
     }
     strategies["C"] = strategies["B"]
     traces: list[dict[str, object]] = []

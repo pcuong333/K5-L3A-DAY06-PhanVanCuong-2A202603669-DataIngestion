@@ -12,8 +12,8 @@
 
 ## Cấu hình và benchmark
 
-- **A:** fixed-size 500 ký tự, overlap 50.
-- **B:** gom theo paragraph, tối đa 500 ký tự.
+- **A:** fixed-size 800 ký tự, overlap 100 (iteration 2; iteration 1 dùng 500/50).
+- **B:** gom theo paragraph, tối đa 800 ký tự (iteration 2; iteration 1 dùng 500).
 - **C:** giống B, thêm filter `section` khi câu hỏi có filter.
 - **Benchmark:** 20 câu hỏi tại `starter/benchmark/questions.json`, gồm 15 dev và 5 test; có 8 câu dùng filter.
 - **Tiêu chí chọn:** ưu tiên Evidence Hit@3, sau đó Hit@1 và tài nguyên.
@@ -22,14 +22,14 @@
 
 | Strategy | Split | Hit@1 (n/N) | Evidence Hit@3 (n/N) | Chunk count | Thời gian | Chi phí |
 |---|---|---:|---:|---:|---:|---:|
-| A | dev | 2/15 | 6/15 | 350 | 3.7919 s | 0 |
-| A | test | 0/5 | 0/5 | 350 | 3.7919 s | 0 |
-| B | dev | 3/15 | 6/15 | 313 | 3.2795 s | 0 |
-| B | test | 0/5 | 0/5 | 313 | 3.2795 s | 0 |
-| C | dev | 3/15 | 6/15 | 313 | 3.2709 s | 0 |
-| C | test | 0/5 | 0/5 | 313 | 3.2709 s | 0 |
+| A | dev | 4/15 | 7/15 | 233 | 2.5941 s | 0 |
+| A | test | 0/5 | 1/5 | 233 | 2.5941 s | 0 |
+| B | dev | 2/15 | 5/15 | 206 | 2.1290 s | 0 |
+| B | test | 0/5 | 0/5 | 206 | 2.1290 s | 0 |
+| C | dev | 2/15 | 5/15 | 206 | 2.2599 s | 0 |
+| C | test | 0/5 | 0/5 | 206 | 2.2599 s | 0 |
 
-Trace: `starter/results/traces.json`; summary: `starter/results/summary.json`.
+Trace: `starter/results/traces.json`; summary: `starter/results/summary.json`. Đây là kết quả iteration 2.
 
 | Strategy | Coherence trung bình /2 | Metadata đủ và đúng | Filter tuân thủ | Grounding 0/1/2 |
 |---|---:|---:|---:|---|
@@ -41,10 +41,10 @@ Audit chi tiết: `starter/results/manual_audit.json`. Người chấm: tác gi�
 
 ## Phân tích và kết luận sơ bộ
 
-- B và C đạt Hit@1 dev 3/15, cao hơn A 2/15.
-- B và C có 313 chunk, ít hơn A 350 chunk, đồng thời ingest nhanh hơn.
-- C chưa cải thiện điểm tự động so với B trên bộ dev hiện tại.
-- Cả ba cấu hình đạt 0/5 trên test theo proxy Evidence Hit@3, nhưng audit thủ công cho thấy q18 vẫn có grounding tốt ở cả ba strategy.
-- A có coherence thấp hơn B/C do fixed-size thường cắt giữa ý; B/C đạt 2.0/2 trên mẫu coherence.
-- C tuân thủ filter 15/15 nhưng không cải thiện grounding so với B; đúng filter không đảm bảo lấy được evidence tốt.
+- A đạt kết quả tự động tốt nhất ở iteration 2: Hit@1 dev 4/15 và Evidence Hit@3 dev 7/15.
+- Tăng kích thước chunk làm A giảm từ 350 xuống 233 chunk và tăng Evidence Hit@3 test từ 0/5 lên 1/5.
+- B/C giảm điểm dev so với iteration 1; vì vậy không được kết luận chunk lớn luôn tốt hơn.
+- C tuân thủ filter 15/15 nhưng không cải thiện điểm retrieval so với B.
+- `manual_audit.json` là audit của iteration 1; cần chấm lại coherence/grounding nếu dùng iteration 2 làm kết quả cuối.
+- Vì test đã được xem trước khi chạy iteration 2, iteration 2 phải được ghi nhận là thử nghiệm sau khi xem test, không phải đánh giá mù ban đầu.
 - Hạn chế: test chỉ có 5 câu, corpus chỉ dùng trang 30–80, và Evidence Hit@3 tự động yêu cầu evidence nằm trong một chunk.

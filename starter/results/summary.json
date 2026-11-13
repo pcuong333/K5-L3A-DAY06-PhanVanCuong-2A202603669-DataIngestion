@@ -3,22 +3,22 @@
     "strategy": "A",
     "split": "dev",
     "n": 15,
-    "hit_at_1": 2,
-    "evidence_hit_at_3": 6
+    "hit_at_1": 4,
+    "evidence_hit_at_3": 7
   },
   "A:test": {
     "strategy": "A",
     "split": "test",
     "n": 5,
     "hit_at_1": 0,
-    "evidence_hit_at_3": 0
+    "evidence_hit_at_3": 1
   },
   "B:dev": {
     "strategy": "B",
     "split": "dev",
     "n": 15,
-    "hit_at_1": 3,
-    "evidence_hit_at_3": 6
+    "hit_at_1": 2,
+    "evidence_hit_at_3": 5
   },
   "B:test": {
     "strategy": "B",
@@ -31,8 +31,8 @@
     "strategy": "C",
     "split": "dev",
     "n": 15,
-    "hit_at_1": 3,
-    "evidence_hit_at_3": 6
+    "hit_at_1": 2,
+    "evidence_hit_at_3": 5
   },
   "C:test": {
     "strategy": "C",
