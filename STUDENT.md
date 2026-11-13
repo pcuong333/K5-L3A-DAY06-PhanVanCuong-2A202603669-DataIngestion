@@ -5,4 +5,4 @@
 - Lớp: L3A / L3B / khác: L3As
 - Chủ đề và corpus: Introduction to Computer Science, OpenStax; PDF pages 30-80
 - Repo bài nộp: https://github.com/pcuong333/K5-L3A-DAY06-PhanVanCuong-2A202603669-DataIngestion
-- Commit chốt bài:
+- Commit chốt bài: 10b98fe
