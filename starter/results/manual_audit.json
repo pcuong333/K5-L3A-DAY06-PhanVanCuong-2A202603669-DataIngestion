@@ -1,0 +1,52 @@
+{
+  "auditor": "Phan Van Cuong",
+  "coherence": {
+    "method": "Chon cung 10 vi tri theo cac trang 49-58; cham chunk chua vi tri, thang 0-2.",
+    "positions": [
+      {"page": 49, "A": 1, "B": 2, "C": 2, "reason": "A cat qua figure/chapter outline; B va C giu du doan van."},
+      {"page": 50, "A": 1, "B": 2, "C": 2, "reason": "A cat giua mo ta; B va C giu mach y."},
+      {"page": 51, "A": 1, "B": 2, "C": 2, "reason": "A cat giua dinh nghia; B va C giu doan hoan chinh."},
+      {"page": 52, "A": 1, "B": 2, "C": 2, "reason": "A tach danh sach thanh phan; B va C de doc hon."},
+      {"page": 53, "A": 1, "B": 2, "C": 2, "reason": "A cat giua giai thich abstraction; B va C giu chu de."},
+      {"page": 54, "A": 1, "B": 2, "C": 2, "reason": "A cat vi du sandwich; B va C giu lien ket decomposition-pattern."},
+      {"page": 55, "A": 1, "B": 2, "C": 2, "reason": "A cat danh sach ngan sach; B va C giu cac buoc."},
+      {"page": 56, "A": 2, "B": 2, "C": 2, "reason": "Ca ba deu co chunk chua dinh nghia algorithm du ro."},
+      {"page": 57, "A": 1, "B": 2, "C": 2, "reason": "A co the cat giua mo hinh thuc thi; B va C giu doan."},
+      {"page": 58, "A": 1, "B": 2, "C": 2, "reason": "A cat giua code va giai thich recursion; B va C mach lac hon."}
+    ],
+    "average": {"A": 1.1, "B": 2.0, "C": 2.0}
+  },
+  "metadata": {
+    "records_checked_per_strategy": 15,
+    "complete_and_correct": {"A": "15/15", "B": "15/15", "C": "15/15"},
+    "filter_compliance": {"A": "N/A", "B": "N/A", "C": "15/15"},
+    "note": "Kiem tra source, page, document_id va section tren top-3 cua 5 cau test."
+  },
+  "grounding": {
+    "scale": "0=khong co bang chung, 1=co nhung thieu dieu kien/ngu canh, 2=du bang chung va truy duoc nguon.",
+    "scores": {
+      "A": [
+        {"question_id": "q16", "score": 0, "reason": "Top-3 khong chua evidence ve human-centered computing."},
+        {"question_id": "q17", "score": 1, "reason": "Co lien quan algorithm nhung khong neu ro parallel/concurrency va recursion."},
+        {"question_id": "q18", "score": 2, "reason": "Top-3 trang 54 co du noi dung decomposition va pattern recognition."},
+        {"question_id": "q19", "score": 1, "reason": "Co lien quan information architecture nhung khong du danh sach tai san."},
+        {"question_id": "q20", "score": 0, "reason": "Top-3 khong co dieu kien kien truc phu hop."}
+      ],
+      "B": [
+        {"question_id": "q16", "score": 0, "reason": "Top-3 khong chua evidence truc tiep."},
+        {"question_id": "q17", "score": 0, "reason": "Top-3 khong chua doan ve cac mo hinh thay the tuan tu."},
+        {"question_id": "q18", "score": 2, "reason": "Top-1 va top-2 cung trang 54 du de giai thich hai khai niem."},
+        {"question_id": "q19", "score": 1, "reason": "Co ngu canh architecture nhung thieu danh sach day du."},
+        {"question_id": "q20", "score": 0, "reason": "Khong co chunk du thong tin ve tieu chi phu hop."}
+      ],
+      "C": [
+        {"question_id": "q16", "score": 0, "reason": "Filter dung section nhung top-3 van khong co evidence can thiet."},
+        {"question_id": "q17", "score": 1, "reason": "Dung section va co ngu canh computational thinking, nhung thieu doan algorithm execution."},
+        {"question_id": "q18", "score": 2, "reason": "Top-1/top-2 trang 54 du evidence ve decomposition va pattern recognition."},
+        {"question_id": "q19", "score": 0, "reason": "Filter dung section nhung top-3 khong lay duoc bang thong tin trang 66."},
+        {"question_id": "q20", "score": 0, "reason": "Filter dung section nhung chunk ket qua khong chua dieu kien phu hop."}
+      ]
+    },
+    "average": {"A": 0.8, "B": 0.6, "C": 0.6}
+  }
+}

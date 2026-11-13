@@ -1,0 +1,4 @@
+run_id,strategy,hypothesis,chunking,filter,embedding_model,vector_store,split,notes
+run-001,A,"Fixed-size chunks provide a simple baseline.","500 chars; overlap 50","none","sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2","PostgreSQL 16.16 + pgvector 0.8.7","dev/test","Baseline run; 350 chunks; cost 0"
+run-001,B,"Paragraph-aware chunks preserve context better than fixed windows.","Paragraph groups; max 500 chars","none","sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2","PostgreSQL 16.16 + pgvector 0.8.7","dev/test","Compared with A using same corpus and questions; 313 chunks; cost 0"
+run-001,C,"Adding a trusted section filter improves scoped retrieval.","Paragraph groups; max 500 chars","section when supplied by question","sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2","PostgreSQL 16.16 + pgvector 0.8.7","dev/test","Compared with B by changing filter only; 313 chunks; cost 0"
